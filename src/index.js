@@ -68,6 +68,7 @@ class Game extends React.Component {
     this.setState({
       history: history.concat([{
         squares: squares,
+        position: getPosition(i),
       }]),
       xIsNext: !this.state.xIsNext,
       stepNumber: history.length,
@@ -92,7 +93,7 @@ class Game extends React.Component {
         'Back to beginning';
       return (
         <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          <button onClick={() => this.jumpTo(move)}>{desc} {step.position}</button>
         </li>
       )
     });
@@ -127,6 +128,43 @@ ReactDOM.render(
   <Game />,
   document.getElementById('root')
 );
+
+
+function getPosition(i) {
+  let pos;
+  switch (i) {
+    case 0:
+      pos = "(1, 1)";
+      break;
+    case 1:
+      pos = "(2, 1)";
+      break;
+    case 2:
+      pos = "(3, 1)";
+      break;
+    case 3:
+      pos = "(2, 1)";
+      break;
+    case 4:
+      pos = "(2, 2)";
+      break;
+    case 5:
+      pos = "(2, 3)";
+      break;
+    case 6:
+      pos = "(3, 1)";
+      break;
+    case 7:
+      pos = "(3, 2)";
+      break;
+    case 8:
+      pos = "(3, 3)";
+      break;
+    default:
+      pos = "Something went wrong";
+  }
+  return pos;
+}
 
 function calculateWinner(squares) {
   const lines = [
