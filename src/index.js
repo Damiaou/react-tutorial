@@ -82,10 +82,15 @@ class Game extends React.Component {
     });
   }
 
+  highlight(position) {
+    return position === this.state.stepNumber ? "highlight" : "";
+  }
+
   render() {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
+
 
     const moves = history.map((step, move) => {
       const desc = move ?
@@ -93,7 +98,7 @@ class Game extends React.Component {
         'Back to beginning';
       return (
         <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc} {step.position}</button>
+          <button className={this.highlight(move)} onClick={() => this.jumpTo(move)}>{desc} {step.position}</button>
         </li>
       )
     });

@@ -48,3 +48,10 @@ ol, ul {
 .game-info {
   margin-left: 20px;
 }
+
+button.highlight {
+  background-color: #2b9292;
+  color: white;
+  border-radius: 3px;
+  border: none;
+}
