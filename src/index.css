@@ -55,3 +55,12 @@ button.highlight {
   border-radius: 3px;
   border: none;
 }
+
+button.sort {
+  border: none;
+  color: white;
+  padding: 1vh;
+  border-radius: 2px;
+  background-color: #79befb;
+  text-align: center;
+}

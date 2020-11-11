@@ -120,7 +120,7 @@ class Game extends React.Component {
         </div>
         <div className="game-info">
           <div>{status}</div>
-          <button>Sort</button>
+          <button className='sort'>Sort</button>
           <ol>{moves}</ol>
         </div>
       </div>
