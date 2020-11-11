@@ -86,6 +86,10 @@ class Game extends React.Component {
     return position === this.state.stepNumber ? "highlight" : "";
   }
 
+  sort() {
+    // Add action on sort button click
+  }
+
   render() {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
@@ -119,7 +123,7 @@ class Game extends React.Component {
           />
         </div>
         <div className="game-info">
-          <div>{status} - <button className='sort'>Sort</button></div>
+          <div>{status} - <button className='sort' onClick={() => this.sort()}>Sort</button></div>
           <ol>{moves}</ol>
         </div>
       </div>
