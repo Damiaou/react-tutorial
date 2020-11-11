@@ -23,25 +23,25 @@ class Board extends React.Component {
   }
 
   render() {
+    // Need a three element array to loop
+    const looper = [0, 1, 2];
+    // And a counter got to 8
+    let inc = 0;
+
     return (
       <div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
+        {looper.map((value, index) => {
+          return (
+            <div className="board-row">
+              {looper.map((val, id) => {
+                inc++;
+                return this.renderSquare(inc - 1);
+              })}
+            </div>
+          );
+        })}
       </div>
-    );
+    )
   }
 }
 
