@@ -88,6 +88,11 @@ class Game extends React.Component {
 
   sort() {
     // Add action on sort button click
+
+    this.setState({
+      history: this.state.history.slice(0).reverse(),
+      reverse: !this.state.reverse,
+    });
   }
 
   render() {
@@ -97,12 +102,15 @@ class Game extends React.Component {
 
 
     const moves = history.map((step, move) => {
-      const desc = move ?
-        'Back to round n°' + move :
+      let move_for_display = this.state.reverse ?
+        history.length - 1 - move:
+        move;
+      const desc = step.position ?
+        'Back to round n°' + move_for_display + ' ' + step.position:
         'Back to beginning';
       return (
         <li key={move}>
-          <button className={this.highlight(move)} onClick={() => this.jumpTo(move)}>{desc} {step.position}</button>
+          <button className={this.highlight(move)} onClick={() => this.jumpTo(move)}>{desc}</button>
         </li>
       )
     });
