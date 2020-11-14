@@ -97,17 +97,16 @@ class Game extends React.Component {
   }
 
   handleClick(i) {
-    // if I go back to winner step the game cannot continue
+    // TODO if I go back to winner step the game cannot continue
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
     const squares = current.squares.slice();
 
-    if (squares[i]) {
+    if (squares[i] || this.state.winner) {
       return;
     }
 
     squares[i] = this.state.xIsNext ? 'X' : 'O';
-    this.calculateWinner(squares);
 
     this.setState({
       history: history.concat([{
@@ -117,6 +116,10 @@ class Game extends React.Component {
       xIsNext: !this.state.xIsNext,
       stepNumber: history.length,
     });
+
+    if (this.calculateWinner(squares)) {
+      return;
+    }
   }
 
   jumpTo(step) {
