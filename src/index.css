@@ -17,7 +17,7 @@ ol, ul {
   margin-bottom: 10px;
 }
 
-.square {
+.squareold {
   background: #fff;
   border: 1px solid #999;
   float: left;
@@ -30,6 +30,16 @@ ol, ul {
   padding: 0;
   text-align: center;
   width: 34px;
+}
+
+.square{
+  float: left;
+  background: #fff;
+  border: 1px solid #999;
+  width: 10rem;
+  height: 10rem;
+  line-height: 10rem;
+  font-size: 10rem;
 }
 
 .square.won {
@@ -47,6 +57,12 @@ ol, ul {
 .game {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-board {
+
 }
 
 .game-info {
