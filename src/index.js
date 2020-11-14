@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import _ from 'lodash';
 import './index.css';
 
 function Square(props) {
@@ -37,19 +38,15 @@ class Board extends React.Component {
     let inc = 0;
 
     return (
-      <div>
-        {looper.map((value, index) => {
-          return (
-            <div className="board-row">
-              {looper.map((val, id) => {
-                inc++;
-                return this.renderSquare(inc - 1);
-              })}
-            </div>
-          );
-        })}
+      <div className="square-holder">
+        {
+          _.times(9, (i) => {
+            return this.renderSquare(i);
+          })
+        }
       </div>
     );
+
   }
 }
 
@@ -189,6 +186,10 @@ class Game extends React.Component {
 
     return (
       <div className="game">
+        <div className="game-info">
+          <div>{status} - <button className='sort' onClick={() => this.sort()}>Sort</button></div>
+          <ol>{moves}</ol>
+        </div>
         <div className="game-board">
           <Board
             winningLine={this.state.winningLine}
@@ -196,10 +197,7 @@ class Game extends React.Component {
             onClick={(i) => this.handleClick(i)}
           />
         </div>
-        <div className="game-info">
-          <div>{status} - <button className='sort' onClick={() => this.sort()}>Sort</button></div>
-          <ol>{moves}</ol>
-        </div>
+
       </div>
     );
   }

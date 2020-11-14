@@ -57,16 +57,23 @@ ol, ul {
 .game {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
+}
+
+.square-holder {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
 }
 
 .game-board {
+  display: flex;
 
 }
 
 .game-info {
+  display: flex;
   margin-left: 20px;
+  flex-basis: 25%;
 }
 
 button.highlight {
