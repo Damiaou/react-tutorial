@@ -32,11 +32,6 @@ class Board extends React.Component {
   }
 
   render() {
-    // Need a three element array to loop
-    const looper = [0, 1, 2];
-    // And a counter to go to 8
-    let inc = 0;
-
     return (
       <div className="square-holder">
         {
@@ -56,7 +51,7 @@ class Game extends React.Component {
     this.state = {
       history: [{
         squares: Array(9).fill(null),
-      }, ],
+      },],
       stepNumber: 0,
       xIsNext: true,
       winningLine: null,
@@ -122,7 +117,7 @@ class Game extends React.Component {
       history: history.concat([{
         squares: squares,
         position: getPosition(i),
-      }, ]),
+      },]),
       xIsNext: !this.state.xIsNext,
       stepNumber: history.length,
     });
