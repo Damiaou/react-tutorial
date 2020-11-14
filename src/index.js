@@ -59,7 +59,7 @@ class Game extends React.Component {
     this.state = {
       history: [{
         squares: Array(9).fill(null),
-      },],
+      }, ],
       stepNumber: 0,
       xIsNext: true,
       winningLine: null,
@@ -89,7 +89,6 @@ class Game extends React.Component {
       }
     }
 
-    const even = false;
     let counter = 0;
     squares.forEach((item, i) => {
       if (item !== null) {
@@ -126,7 +125,7 @@ class Game extends React.Component {
       history: history.concat([{
         squares: squares,
         position: getPosition(i),
-      },]),
+      }, ]),
       xIsNext: !this.state.xIsNext,
       stepNumber: history.length,
     });
