@@ -51,7 +51,7 @@ class Game extends React.Component {
     this.state = {
       history: [{
         squares: Array(9).fill(null),
-      },],
+      }, ],
       stepNumber: 0,
       xIsNext: true,
       winningLine: null,
@@ -117,7 +117,7 @@ class Game extends React.Component {
       history: history.concat([{
         squares: squares,
         position: getPosition(i),
-      },]),
+      }, ]),
       xIsNext: !this.state.xIsNext,
       stepNumber: history.length,
     });
@@ -181,10 +181,6 @@ class Game extends React.Component {
 
     return (
       <div className="game">
-        <div className="game-info">
-          <div>{status} - <button className='sort' onClick={() => this.sort()}>Sort</button></div>
-          <ol>{moves}</ol>
-        </div>
         <div className="game-board">
           <Board
             winningLine={this.state.winningLine}
@@ -192,7 +188,10 @@ class Game extends React.Component {
             onClick={(i) => this.handleClick(i)}
           />
         </div>
-
+        <div className="game-info">
+          <div>{status} - <button className='sort' onClick={() => this.sort()}>Sort</button></div>
+          <ol>{moves}</ol>
+        </div>
       </div>
     );
   }
